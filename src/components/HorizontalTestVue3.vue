@@ -1,5 +1,5 @@
 <template>
-  <BarChart ref="barRef" :chartData="testData" :options="options" />
+  <BarChart class="max-w-1/2" ref="barRef" :chartData="testData" :options="options" />
 </template>
 
 <script>
@@ -9,33 +9,6 @@ import { BarChart } from "vue-chart-3";
 
 Chart.register(...registerables);
 
-// const tooltipPlugin = Chart.registry.getPlugin("tooltip");
-// tooltipPlugin.positioners.middle = function (elements, eventPosition) {
-//   console.log("elements", elements);
-//   console.log("eventPosition", eventPosition);
-
-//   // const el = items[0].element;
-//   // let xPos = 0;
-//   // let yPos = 0;
-
-//   // if (el && el.hasValue()) {
-//   //   const { base, horizontal, x, y } = el.getProps();
-//   //   if (horizontal) {
-//   //     xPos = (base + x) / 2;
-//   //     yPos = y;
-//   //   } else {
-//   //     xPos = x;
-//   //     yPos = (base + y) / 2;
-//   //   }
-//   // }
-
-//   // return {
-//   //   x: xPos,
-//   //   y: yPos,
-//   // };
-//   return true;
-// };
-
 export default defineComponent({
   name: "Home",
   components: { BarChart },
@@ -43,30 +16,30 @@ export default defineComponent({
     const barRef = ref();
 
     const options = ref({
-      barThickness: 20,
+      barThickness: 80,
       responsive: true,
-      indexAxis: "y",
+      indexAxis: "x",
       plugins: {
         tooltip: {
-          // position: "middle",
+          position: "middle",
         },
       },
     });
 
     const testData = {
-      labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
+      labels: ["El salvador", "Nîmes", "Toulon", "Perpignan", "Autre"],
       options: {
-        barThickness: 20,
-        indexAxis: "y",
+        indexAxis: "x",
       },
       datasets: [
         {
-          data: [30, 40, 60, 70, 5],
+          data: [96, 40, 60, 70, 5],
           backgroundColor: [
-            "#77CEFF",
+            "#000",
             "#0079AF",
-            "#123E6B",
+            "#123E9B",
             "#97B0C4",
+            "#A5C8ED",
             "#A5C8ED",
           ],
         },
